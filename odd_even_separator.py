@@ -37,3 +37,5 @@ def separate_numbers():
 
 # Run the function
 separate_numbers()
+
+#Fixed directory path issues
