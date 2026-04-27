@@ -30,3 +30,19 @@ def process_student_gwa():
                         f"on line {line_num}"
                     )
                     continue
+                try:
+                    student_name = " ".join(parts[:-1])
+                    gwa = float(parts[-1])
+
+                    students.append(
+                        {
+                            "name": student_name,
+                            "gwa": gwa
+                        }
+                    )
+
+                except ValueError:
+                    print(
+                        f"Warning: Invalid GWA "
+                        f"on line {line_num}"
+                    )
