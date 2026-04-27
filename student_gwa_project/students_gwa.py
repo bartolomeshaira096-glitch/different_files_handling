@@ -9,7 +9,7 @@ def get_latin_honor(gwa):
         return "No Latin Honor"
     
 def process_student_gwa():
-    filename = input("Enter the name of the input file: ")
+    filename= input("Enter the name of the input file: ")
 
     students = []
 

@@ -23,7 +23,7 @@ def defining_my_life():
     word_count = 0
 
     try:
-        with open(filename, "w") as file:
+        with open(filename, "a") as file:
 
             file.write("MY LIFE JOURNAL\n")
             file.write(
