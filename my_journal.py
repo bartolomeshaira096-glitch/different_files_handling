@@ -14,3 +14,23 @@ def get_user_choice():
             "Invalid input. "
             "Please enter y or n."
         )
+
+def defining_my_life():
+    filename = "own_life.txt"
+
+    line_count = 0
+    word_count = 0
+
+    try:
+        with open(filename, "w") as file:
+
+            file.write(
+                "MY LIFE JOURNAL\n"
+            )
+            file.write(
+                f"Created: "
+                f"{datetime.now()}\n"
+            )
+            file.write(
+                "-" * 40 + "\n"
+            )
