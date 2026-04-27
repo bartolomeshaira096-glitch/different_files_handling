@@ -11,7 +11,7 @@ def process_integers():
                 parts = line.strip().split()
                 for part in parts:
                     numbers.append(int(part))
-                    
+
         if len(numbers) != 20:
             print(f"Warning: Expected 20 integers, found {len(numbers)}")
 
@@ -25,3 +25,8 @@ def process_integers():
             else:
                 # odd → cube
                 odd_results.append(num ** 3)
+        
+         # Write even (squared) numbers
+        with open(even_output_file, "w") as file:
+            for value in even_results:
+                file.write(str(value) + "\n")
