@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 
 
@@ -11,9 +12,9 @@ def get_user_choice():
             return choice
 
         print(
-            "Invalid input. "
-            "Please enter y or n."
+            "Invalid input. Please enter y or n."
         )
+
 
 def defining_my_life():
     filename = "own_life.txt"
@@ -24,16 +25,11 @@ def defining_my_life():
     try:
         with open(filename, "w") as file:
 
+            file.write("MY LIFE JOURNAL\n")
             file.write(
-                "MY LIFE JOURNAL\n"
+                f"Created: {datetime.now()}\n"
             )
-            file.write(
-                f"Created: "
-                f"{datetime.now()}\n"
-            )
-            file.write(
-                "-" * 40 + "\n"
-            )
+            file.write("-" * 40 + "\n")
 
             while True:
                 line = input(
@@ -42,13 +38,10 @@ def defining_my_life():
 
                 if line:
                     line_count += 1
-                    word_count += len(
-                        line.split()
-                    )
+                    word_count += len(line.split())
 
                     file.write(
-                        f"{line_count}. "
-                        f"{line}\n"
+                        f"{line_count}. {line}\n"
                     )
 
                 choice = get_user_choice()
@@ -58,11 +51,25 @@ def defining_my_life():
 
         print("\nJournal saved successfully!")
         print("-" * 30)
+
+        # Show file location
         print(
-            f"Total lines written: "
-            f"{line_count}"
+            "Saved in:",
+            os.path.abspath(filename)
+        )
+
+        print(
+            f"Total lines written: {line_count}"
         )
         print(
-            f"Total words written: "
-            f"{word_count}"
+            f"Total words written: {word_count}"
         )
+
+    except Exception as error:
+        print(
+            f"An error occurred: {error}"
+        )
+
+
+if __name__ == "__main__":
+    defining_my_life()
