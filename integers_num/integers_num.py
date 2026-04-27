@@ -36,3 +36,18 @@ def process_integers():
             for value in odd_results:
                 file.write(str(value) + "\n")
 
+        print("Processing complete!")
+        print(f"Even squares saved to: {even_output_file}")
+        print(f"Odd cubes saved to: {odd_output_file}")
+
+    except FileNotFoundError:
+        print(f"Error: '{input_file}' not found.")
+    except ValueError:
+        print("Error: File must contain valid integers only.")
+    except Exception as error:
+        print(f"Unexpected error: {error}")
+
+
+if __name__ == "__main__":
+    process_integers()
+
