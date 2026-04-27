@@ -34,3 +34,35 @@ def defining_my_life():
             file.write(
                 "-" * 40 + "\n"
             )
+
+            while True:
+                line = input(
+                    f"Entry {line_count + 1}: "
+                ).strip()
+
+                if line:
+                    line_count += 1
+                    word_count += len(
+                        line.split()
+                    )
+
+                    file.write(
+                        f"{line_count}. "
+                        f"{line}\n"
+                    )
+
+                choice = get_user_choice()
+
+                if choice == "n":
+                    break
+
+        print("\nJournal saved successfully!")
+        print("-" * 30)
+        print(
+            f"Total lines written: "
+            f"{line_count}"
+        )
+        print(
+            f"Total words written: "
+            f"{word_count}"
+        )
