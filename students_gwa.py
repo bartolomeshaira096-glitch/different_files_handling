@@ -46,3 +46,12 @@ def process_student_gwa():
                         f"Warning: Invalid GWA "
                         f"on line {line_num}"
                     )
+        if not students:
+            print("No valid student data found.")
+            return
+
+        # Sort students by GWA (lower is better)
+        students.sort(
+            key=lambda student: student["gwa"]
+        )
+
