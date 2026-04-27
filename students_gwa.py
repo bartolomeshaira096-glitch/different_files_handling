@@ -55,3 +55,32 @@ def process_student_gwa():
             key=lambda student: student["gwa"]
         )
 
+        # Highest GWA student
+        top_student = students[0]
+
+        print("\n" + "=" * 45)
+        print(" STUDENT WITH HIGHEST GWA ")
+        print("=" * 45)
+
+        print(f"Name  : {top_student['name']}")
+        print(f"GWA   : {top_student['gwa']:.2f}")
+        print(
+            f"Honor : "
+            f"{get_latin_honor(top_student['gwa'])}"
+        )
+
+        # Top 3 Dean's Listers
+        print("\nTOP 3 DEAN'S LISTERS")
+        print("-" * 45)
+
+        for rank, student in enumerate(
+            students[:3],
+            start=1
+        ):
+            print(
+                f"{rank}. "
+                f"{student['name']} - "
+                f"{student['gwa']:.2f} "
+                f"({get_latin_honor(student['gwa'])})"
+            )
+
