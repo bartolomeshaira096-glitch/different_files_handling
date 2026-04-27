@@ -30,3 +30,9 @@ def process_integers():
         with open(even_output_file, "w") as file:
             for value in even_results:
                 file.write(str(value) + "\n")
+        
+        # Write odd (cubed) numbers
+        with open(odd_output_file, "w") as file:
+            for value in odd_results:
+                file.write(str(value) + "\n")
+
