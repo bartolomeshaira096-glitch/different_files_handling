@@ -17,7 +17,7 @@ def get_user_choice():
 
 
 def defining_my_life():
-    filename = "own_life.txt"
+    filename = "journal_project/own_life.txt"
 
     line_count = 0
     word_count = 0
