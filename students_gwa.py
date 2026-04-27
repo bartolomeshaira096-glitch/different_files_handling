@@ -84,3 +84,25 @@ def process_student_gwa():
                 f"({get_latin_honor(student['gwa'])})"
             )
 
+            # Class Statistics
+        total_gwa = sum(
+            student["gwa"]
+            for student in students
+        )
+
+        average_gwa = (
+            total_gwa / len(students)
+        )
+
+        print("\nCLASS STATISTICS")
+        print("-" * 45)
+        print(
+            f"Number of Students : "
+            f"{len(students)}"
+        )
+        print(
+            f"Class Average GWA  : "
+            f"{average_gwa:.2f}"
+        )
+
+
