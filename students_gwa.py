@@ -105,4 +105,34 @@ def process_student_gwa():
             f"{average_gwa:.2f}"
         )
 
+         # Bonus Ranking Leaderboard
+        print("\nCLASS RANKING")
+        print("-" * 45)
+
+        for rank, student in enumerate(
+            students,
+            start=1
+        ):
+            print(
+                f"{rank:>2}. "
+                f"{student['name']:<20} "
+                f"{student['gwa']:.2f}"
+            )
+
+    except FileNotFoundError:
+        print(
+            f"Error: File '{filename}' "
+            f"not found."
+        )
+
+    except Exception as error:
+        print(
+            f"An error occurred: "
+            f"{error}"
+        )
+
+
+if __name__ == "__main__":
+    process_student_gwa()
+
 
