@@ -16,14 +16,15 @@ class JournalManager:
             print("Invalid input.")
 
 
-def defining_my_life():
-    filename = "journal_project/own_life.txt"
+def create_journal(self):
+        journal_filename = (
+            "journal_project/own_life.txt"
+        )
 
-    line_count = 0
-    word_count = 0
+        total_line_count = 0
+        total_word_count = 0
 
-    try:
-        with open(filename, "a") as file:
+        with open(journal_filename, "a") as file:
 
             file.write("MY LIFE JOURNAL\n")
             file.write(
@@ -32,44 +33,35 @@ def defining_my_life():
             file.write("-" * 40 + "\n")
 
             while True:
-                line = input(
-                    f"Entry {line_count + 1}: "
+
+                journal_entry = input(
+                    f"Entry {total_line_count + 1}: "
                 ).strip()
 
-                if line:
-                    line_count += 1
-                    word_count += len(line.split())
-
-                    file.write(
-                        f"{line_count}. {line}\n"
+                if journal_entry:
+                    total_line_count += 1
+                    total_word_count += len(
+                        journal_entry.split()
                     )
 
-                choice = get_user_choice()
+                    file.write(
+                        f"{total_line_count}. "
+                        f"{journal_entry}\n"
+                    )
 
-                if choice == "n":
+                if self.get_user_choice() == "n":
                     break
 
-        print("\nJournal saved successfully!")
-        print("-" * 30)
-
-        # Show file location
         print(
-            "Saved in:",
-            os.path.abspath(filename)
+            os.path.abspath(
+                journal_filename
+            )
         )
 
         print(
-            f"Total lines written: {line_count}"
+            f"Lines Written: {total_line_count}"
         )
+
         print(
-            f"Total words written: {word_count}"
+            f"Words Written: {total_word_count}"
         )
-
-    except Exception as error:
-        print(
-            f"An error occurred: {error}"
-        )
-
-
-if __name__ == "__main__":
-    defining_my_life()
