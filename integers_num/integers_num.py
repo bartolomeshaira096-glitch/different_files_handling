@@ -15,39 +15,28 @@ def process_integers():
 
         return integer_list
 
-        even_results = []
-        odd_results = []
+    def process_numbers(self):
+        integer_list = self.read_numbers()
 
-        for num in numbers:
-            if num % 2 == 0:
-                # even → square
-                even_results.append(num ** 2)
+        even_square_results = []
+        odd_cube_results = []
+
+        for current_number in integer_list:
+            if current_number % 2 == 0:
+                even_square_results.append(
+                    current_number ** 2
+                )
             else:
-                # odd → cube
-                odd_results.append(num ** 3)
-        
-         # Write even (squared) numbers
-        with open(even_output_file, "w") as file:
-            for value in even_results:
-                file.write(str(value) + "\n")
-        
-        # Write odd (cubed) numbers
-        with open(odd_output_file, "w") as file:
-            for value in odd_results:
-                file.write(str(value) + "\n")
+                odd_cube_results.append(
+                    current_number ** 3
+                )
 
-        print("Processing complete!")
-        print(f"Even squares saved to: {even_output_file}")
-        print(f"Odd cubes saved to: {odd_output_file}")
+        with open(self.even_output_file, "w") as file:
+            for result in even_square_results:
+                file.write(f"{result}\n")
 
-    except FileNotFoundError:
-        print(f"Error: '{input_file}' not found.")
-    except ValueError:
-        print("Error: File must contain valid integers only.")
-    except Exception as error:
-        print(f"Unexpected error: {error}")
+        with open(self.odd_output_file, "w") as file:
+            for result in odd_cube_results:
+                file.write(f"{result}\n")
 
-
-if __name__ == "__main__":
-    process_integers()
-
+        print("Integer processing complete!")
