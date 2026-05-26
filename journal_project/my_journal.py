@@ -2,18 +2,18 @@ import os
 from datetime import datetime
 
 
-def get_user_choice():
-    while True:
-        choice = input(
-            "Are there more lines (y/n)? "
-        ).strip().lower()
+class JournalManager:
 
-        if choice in ("y", "n"):
-            return choice
+    def get_user_choice(self):
+        while True:
+            user_choice = input(
+                "Are there more lines (y/n)? "
+            ).lower()
 
-        print(
-            "Invalid input. Please enter y or n."
-        )
+            if user_choice in ["y", "n"]:
+                return user_choice
+
+            print("Invalid input.")
 
 
 def defining_my_life():
