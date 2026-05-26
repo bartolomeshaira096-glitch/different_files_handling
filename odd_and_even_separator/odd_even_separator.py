@@ -1,10 +1,13 @@
 class NumberSeparator:
 
+    def __init__(self):
+        self.input_filename = "numbers.txt"
+        self.even_filename = "even.txt"
+        self.odd_filename = "odd.txt"
+
     def separate_numbers(self):
-    try:
-        # Read numbers from numbers.txt
-        with open("numbers.txt", "r") as file:
-            numbers = [int(line.strip()) for line in file]
+        try:
+            
 
         # Optional check
         if len(numbers) != 20:
