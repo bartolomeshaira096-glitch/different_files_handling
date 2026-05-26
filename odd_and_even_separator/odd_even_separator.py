@@ -39,24 +39,17 @@ class NumberSeparator:
                 even_file.write(
                     f"{even_number}\n"
                 )
-        # Write even numbers to even.txt
-        with open("even.txt", "w") as even_file:
-            for num in even_numbers:
-                even_file.write(str(num) + "\n")
+        
+        with open(
+            self.odd_filename,
+            "w"
+        ) as odd_file:
 
-        # Write odd numbers to odd.txt
-        with open("odd.txt", "w") as odd_file:
-            for num in odd_numbers:
-                odd_file.write(str(num) + "\n")
+            for odd_number in odd_number_list:
+                odd_file.write(
+                    f"{odd_number}\n"
+                )
 
-        print("Done! Numbers have been separated into even.txt and odd.txt.")
-
-    except FileNotFoundError:
-        print("Error: numbers.txt file not found.")
-    except ValueError:
-        print("Error: Make sure all lines in numbers.txt are integers.")
-
-# Run the function
-separate_numbers()
-
-#Fixed directory path issues
+        print(
+            "Numbers successfully separated."
+        )
