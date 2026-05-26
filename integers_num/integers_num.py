@@ -1,7 +1,9 @@
-def process_integers():
-    input_file = "integers.txt"
-    even_output_file = "double.txt"
-    odd_output_file = "triple.txt"
+class IntegerProcessor:
+
+    def __init__(self):
+        self.input_file = "integers_num/integers.txt"
+        self.even_output_file = "integers_num/double.txt"
+        self.odd_output_file = "integers_num/triple.txt"
 
     def read_numbers(self):
         integer_list = []

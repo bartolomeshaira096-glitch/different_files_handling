@@ -16,7 +16,7 @@ class JournalManager:
             print("Invalid input.")
 
 
-def create_journal(self):
+    def create_journal(self):
         journal_filename = (
             "journal_project/own_life.txt"
         )
