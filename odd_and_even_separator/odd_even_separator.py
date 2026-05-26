@@ -1,4 +1,6 @@
-def separate_numbers():
+class NumberSeparator:
+
+    def separate_numbers(self):
     try:
         # Read numbers from numbers.txt
         with open("numbers.txt", "r") as file:
