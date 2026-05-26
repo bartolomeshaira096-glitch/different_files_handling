@@ -3,17 +3,17 @@ def process_integers():
     even_output_file = "double.txt"
     odd_output_file = "triple.txt"
 
-    try:
-        with open(input_file, "r") as file:
-            # Read all integers (handles spaces or new lines)
-            numbers = []
-            for line in file:
-                parts = line.strip().split()
-                for part in parts:
-                    numbers.append(int(part))
+    def read_numbers(self):
+        integer_list = []
 
-        if len(numbers) != 20:
-            print(f"Warning: Expected 20 integers, found {len(numbers)}")
+        with open(self.input_file, "r") as file:
+            for line in file:
+                values = line.strip().split()
+
+                for value in values:
+                    integer_list.append(int(value))
+
+        return integer_list
 
         even_results = []
         odd_results = []
