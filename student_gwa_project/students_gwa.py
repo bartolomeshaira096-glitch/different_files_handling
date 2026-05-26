@@ -1,13 +1,20 @@
-def get_latin_honor(gwa):
-    if gwa <= 1.20:
+class StudentGWAManager:
+
+    def get_latin_honor(
+    self,
+    student_gwa
+):
+    if student_gwa <= 1.20:
         return "Summa Cum Laude"
-    elif gwa <= 1.45:
+
+    if student_gwa <= 1.45:
         return "Magna Cum Laude"
-    elif gwa <= 1.75:
+
+    if student_gwa <= 1.75:
         return "Cum Laude"
-    else:
-        return "No Latin Honor"
-    
+
+    return "No Latin Honor"
+
 def process_student_gwa():
     filename= input("Enter the name of the input file: ")
 
