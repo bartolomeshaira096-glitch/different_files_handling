@@ -6,23 +6,39 @@ class NumberSeparator:
         self.odd_filename = "odd.txt"
 
     def separate_numbers(self):
-        try:
-            
+        with open(
+            self.input_filename,
+            "r"
+        ) as file:
 
-        # Optional check
-        if len(numbers) != 20:
-            print(f"Warning: Expected 20 numbers, found {len(numbers)}")
+            number_list = [
+                int(line.strip())
+                for line in file
+            ]
 
-        # Separate even and odd numbers
-        even_numbers = []
-        odd_numbers = []
+        even_number_list = []
+        odd_number_list = []
 
-        for num in numbers:
-            if num % 2 == 0:
-                even_numbers.append(num)
+        for current_number in number_list:
+
+            if current_number % 2 == 0:
+                even_number_list.append(
+                    current_number
+                )
             else:
-                odd_numbers.append(num)
+                odd_number_list.append(
+                    current_number
+                )
 
+        with open(
+            self.even_filename,
+            "w"
+        ) as even_file:
+
+            for even_number in even_number_list:
+                even_file.write(
+                    f"{even_number}\n"
+                )
         # Write even numbers to even.txt
         with open("even.txt", "w") as even_file:
             for num in even_numbers:
