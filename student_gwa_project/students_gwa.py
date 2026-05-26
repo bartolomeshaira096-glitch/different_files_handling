@@ -15,47 +15,50 @@ class StudentGWAManager:
 
     return "No Latin Honor"
 
-def process_student_gwa():
-    filename= input("Enter the name of the input file: ")
+    def process_student_records(self):
 
-    students = []
+        input_filename = input(
+            "Enter input filename: "
+        )
 
-    try:
-        with open(filename, "r") as file:
+        student_record_list = []
 
-            for line_num, line in enumerate(file, 1):
-                line = line.strip()
+        with open(
+            input_filename,
+            "r"
+        ) as file:
 
-                if not line:
+            for line_number, line in enumerate(
+                file,
+                start=1
+            ):
+
+                cleaned_line = line.strip()
+
+                if not cleaned_line:
                     continue
 
-                parts = line.split()
+                separated_values = (
+                    cleaned_line.split()
+                )
 
-                if len(parts) < 2:
-                    print(
-                        f"Warning: Invalid format "
-                        f"on line {line_num}"
-                    )
-                    continue
-                try:
-                    student_name = " ".join(parts[:-1])
-                    gwa = float(parts[-1])
+                student_name = " ".join(
+                    separated_values[:-1]
+                )
 
-                    students.append(
-                        {
-                            "name": student_name,
-                            "gwa": gwa
-                        }
-                    )
+                student_gwa = float(
+                    separated_values[-1]
+                )
 
-                except ValueError:
-                    print(
-                        f"Warning: Invalid GWA "
-                        f"on line {line_num}"
-                    )
-        if not students:
-            print("No valid student data found.")
-            return
+                student_record_list.append(
+                    {
+                        "student_name":
+                        student_name,
+
+                        "student_gwa":
+                        student_gwa
+                    }
+                )
 
         # Sort students by GWA (lower is better)
         students.sort(
